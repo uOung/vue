@@ -10,6 +10,7 @@
 
 <body>
   <div id="app">
+    <button v-on:click="sendChild">send</button>
     <child-component v-bind:propsdata="message"></child-component>
   </div>
 
@@ -22,14 +23,13 @@
 
     var app = new Vue({
       el: "#app",
-      template: '<button v-on:click="sendChild">send</button>',
       data: {
         message: 'ACTION'
       },
       methods: {
         sendChild() {
           console.log("????")
-          message = 'kKK'
+          this.message = 'kKK'
         }
       }
     });
