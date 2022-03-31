@@ -45,7 +45,7 @@ export default {
       document.getElementById("result").innerHTML = JSON.stringify(json);
     }
     function get() {
-      console.log('get');
+      console.log("get");
       fetch("http://localhost:4000/api/user/" + 1, {
         method: "GET",
         headers,
@@ -58,23 +58,20 @@ export default {
         });
     }
     function post() {
-      console.log('post');
+      console.log("post");
       const data = {
         id: 20,
         name: "hello",
       };
-      axios
-        .post("http://localhost:4000/api/user", data)
-        .then((response) => {
-          showResult(response.data);
-        });
+      axios.post("http://localhost:4000/api/user", data).then((response) => {
+        showResult(response.data);
+      });
     }
     async function put() {
-      const result = await axios
-        .put("http://localhost:4000/api/user", {
-          id: 1,
-          name: "world",
-        });
+      const result = await axios.put("http://localhost:4000/api/user", {
+        id: 1,
+        name: "world",
+      });
       showResult(result.data);
     }
     async function del() {
@@ -87,20 +84,23 @@ export default {
     }
     async function upload() {
       try {
-        const form = document.getElementById('uploadForm');
+        const form = document.getElementById("uploadForm");
         const formData = new FormData(form);
-        const result = await axios.post("http://localhost:4000/api/upload", formData,
+        const result = await axios.post(
+          "http://localhost:4000/api/upload",
+          formData,
           {
             headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
         showResult(result.data);
       } catch (error) {
         showResult(error);
       }
     }
-    return { get, post, put, del, upload }
-  }
-}
+    return { get, post, put, del, upload };
+  },
+};
 </script>
