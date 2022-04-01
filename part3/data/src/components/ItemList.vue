@@ -1,5 +1,5 @@
 <template>
-<h1>CI/CD</h1>
+<h1>CI/CD Complete</h1>
   <button @click="loadData">load</button>
   <hr>
   <ul>
